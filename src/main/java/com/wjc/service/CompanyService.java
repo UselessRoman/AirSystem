@@ -1,8 +1,14 @@
 package com.wjc.service;
 
+import com.wjc.domain.Company;
+
+import java.util.List;
+
 public interface CompanyService
 {
-    void  averageTotalDistance();
+    List<Company>  findAverageDistance();
 
-    int totalDistance();
+    List<Company> findTotalDistance();
+
+
 }

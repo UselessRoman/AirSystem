@@ -1,26 +1,20 @@
 package com.wjc.domain;
 
-public class Ticket
-{
+public class Ticket {
     private int ticketID;
     private int flightID;
     private int price;
     private double discount;
     private int salesmanID;
     private boolean isSold;
-    private int level;
+    private String level;
 
     @Override
     public String toString() {
-        return "Ticket{" +
-                "ticketID=" + ticketID +
-                ", flightID=" + flightID +
-                ", price=" + price +
-                ", discount=" + discount +
-                ", salesmanID=" + salesmanID +
-                ", isSolded=" + isSold +
-                ", level=" + level +
-                '}';
+        String information = "票号为" + ticketID + "的"+level+"票，航班标识为" + flightID + ", 价格为" + price + ", 折扣为" + discount * 100 + "%,";
+        if (isSold) information += "已出售，售票员编号为" + salesmanID;
+        else information+="未出售";
+        return information;
     }
 
     public int getTicketID() {
@@ -71,11 +65,11 @@ public class Ticket
         isSold = sold;
     }
 
-    public int getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 }

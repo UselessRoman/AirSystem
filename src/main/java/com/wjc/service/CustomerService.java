@@ -1,7 +1,9 @@
 package com.wjc.service;
 
+import com.wjc.domain.Customer;
+
 public interface CustomerService
 {
-    void searchAllInformationByName(String name);
+    Customer searchAllInformationByName(String name);
     void findByID(int id);
 }

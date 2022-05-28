@@ -1,9 +1,10 @@
 package com.wjc.service.impl;
 
 import com.wjc.dao.CustomerDao;
+import com.wjc.domain.Customer;
+import com.wjc.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.wjc.service.CustomerService;
 
 
 @Service
@@ -12,8 +13,9 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerDao customerDao;
 
     @Override
-    public void searchAllInformationByName(String name) {
-        customerDao.searchAllInformationByName(name);
+    public Customer searchAllInformationByName(String name) {
+
+        return customerDao.searchAllInformationByName(name);
     }
 
     @Override

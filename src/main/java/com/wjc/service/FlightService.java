@@ -12,6 +12,10 @@ public interface FlightService
 
     List<Flight> findByDestinationCity(String city);
 
-    List<Flight> indByStartAndDestination(String start,String destination);
+    List<Flight> findByStartAndDestination(String start,String destination);
+
+    List<Flight> findPassengerNumAndTotalSale();
+
+    Flight findCheapestByStartAndDestination(String start,String destination);
 
 }

@@ -2,8 +2,7 @@ package com.wjc.domain;
 
 import java.util.Date;
 
-public class Flight
-{
+public class Flight {
 
     private int flightId;
     private String flightName;
@@ -13,19 +12,37 @@ public class Flight
     private Date arriveTime;
     private int distance;
     private int companyID;
+    private int passengerNum;
+    private int totalSale;
 
     @Override
     public String toString() {
-        return "Flight{" +
-                "flightId=" + flightId +
-                ", flightName='" + flightName + '\'' +
-                ", startPlace='" + startPlace + '\'' +
-                ", destination='" + destination + '\'' +
-                ", startTime=" + startTime +
-                ", arriveTime=" + arriveTime +
-                ", distance=" + distance +
-                ", companyID=" + companyID +
-                '}';
+        return "航班标识为" + flightId +
+                "的" + flightName  +
+                "号航班，由" + startPlace  +
+                "起飞，降落至" + destination  +
+                ", 出发时间为" + startTime +
+                ", 到达时间为" + arriveTime +
+                ", 航程" + distance +
+                ", 公司标识为" + companyID +
+                ", 乘客总人数" + passengerNum +
+                ", 总销售额为" + totalSale;
+    }
+
+    public int getPassengerNum() {
+        return passengerNum;
+    }
+
+    public void setPassengerNum(int passengerNum) {
+        this.passengerNum = passengerNum;
+    }
+
+    public int getTotalSale() {
+        return totalSale;
+    }
+
+    public void setTotalSale(int totalSale) {
+        this.totalSale = totalSale;
     }
 
     public int getFlightId() {

@@ -30,7 +30,17 @@ public class FlightServiceImpl implements FlightService
     }
 
     @Override
-    public List<Flight> indByStartAndDestination(String start,String destination) {
+    public List<Flight> findByStartAndDestination(String start,String destination) {
         return flightDao.findByStartAndDestination(start,destination);
+    }
+
+    @Override
+    public List<Flight> findPassengerNumAndTotalSale() {
+        return flightDao.findPassengerNumAndTotalSale();
+    }
+
+    @Override
+    public Flight findCheapestByStartAndDestination(String start, String destination) {
+        return flightDao.findCheapestByStartAndDestination(start,destination);
     }
 }
