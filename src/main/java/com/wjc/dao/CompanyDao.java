@@ -2,6 +2,7 @@ package com.wjc.dao;
 
 
 import com.wjc.domain.Company;
+import com.wjc.domain.Flight;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -26,6 +27,23 @@ public interface CompanyDao
             "where flight.companyID= company.companyID " +
             "group by  Company.companyID")
     List<Company> findTotalDistance();
+
+
+    @Select("select companyName,AVG(distance) as averageDistance " +
+            "from flight join company " +
+            "where company.companyID=Flight.companyID " +
+            "group by companyName " +
+            "having AVG(distance)>#{distance};")
+    List<Company> findAverageDistanceMoreThan(int distance);
+
+
+
+    @Select("select company.Companyname,Flight.flightId , COUNT(*) as totalPassenger , SUM(Price*discount) as totalSale " +
+            "from flight join company join Ticket join customer " +
+            "where Flight.flightId=Ticket.flightID and Ticket.ticketID = Customer.ticketNum and  company.companyID=Flight.Companyid " +
+            "group by Companyname " +
+            "order by totalPassenger,totalSale ")
+    List<Company> findTotalPassengerAndTotalSale();
 
 
 

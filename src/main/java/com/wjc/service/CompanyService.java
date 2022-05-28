@@ -10,5 +10,7 @@ public interface CompanyService
 
     List<Company> findTotalDistance();
 
+    List<Company> findAverageDistanceMoreThan(int distance);
 
+    List<Company> findTotalPassengerAndTotalSale();
 }

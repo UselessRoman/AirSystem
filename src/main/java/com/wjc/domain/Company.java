@@ -47,7 +47,7 @@ public class Company {
                 "的航司, 全称为" + companyName  +
                 ", 总运营里程为" + totalDistance +
                 ", 平均运营里程为" + averageDistance+
-                ",总运营人数为"+totalPassenager+
+                ",总人数为"+totalPassenager+
                 ",总销售额为"+totalSale;
     }
 

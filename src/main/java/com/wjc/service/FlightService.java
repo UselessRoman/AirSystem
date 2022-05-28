@@ -18,4 +18,12 @@ public interface FlightService
 
     Flight findCheapestByStartAndDestination(String start,String destination);
 
+    int findMinDistanceByDestination(String destination);
+
+    int findMaxDistanceByDestination(String destination);
+
+    int findAverageDistanceByDestination(String destination);
+
+    int findTotalDistanceByDestination(String destination);
+
 }

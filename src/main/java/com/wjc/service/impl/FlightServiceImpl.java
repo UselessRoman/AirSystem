@@ -43,4 +43,26 @@ public class FlightServiceImpl implements FlightService
     public Flight findCheapestByStartAndDestination(String start, String destination) {
         return flightDao.findCheapestByStartAndDestination(start,destination);
     }
+
+    @Override
+    public int findMinDistanceByDestination(String destination) {
+        return flightDao.findMinDistanceByDestination(destination);
+    }
+
+    @Override
+    public int findMaxDistanceByDestination(String destination) {
+        return flightDao.findMaxDistanceByDestination(destination);
+    }
+
+    @Override
+    public int findAverageDistanceByDestination(String destination) {
+        return flightDao.findAverageDistanceByDestination(destination);
+    }
+
+    @Override
+    public int findTotalDistanceByDestination(String destination) {
+        return flightDao.findTotalDistanceByDestination(destination);
+    }
+
+
 }

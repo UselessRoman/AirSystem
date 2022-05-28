@@ -50,4 +50,26 @@ public interface FlightDao {
     Flight findCheapestByStartAndDestination(String start, String destination);
 
 
+    @Select("select min(distance)" +
+            "from flight " +
+            " where destination=#{destination} ")
+    int findMinDistanceByDestination(String destination);
+
+    @Select("select max(distance)" +
+            "from flight " +
+            " where destination=#{destination} ")
+    int findMaxDistanceByDestination(String destination);
+
+    @Select("select avg(distance)" +
+            "from flight " +
+            " where destination=#{destination} ")
+    int findAverageDistanceByDestination(String destination);
+
+    @Select("select sum(distance)" +
+            "from flight " +
+            " where destination=#{destination} ")
+    int findTotalDistanceByDestination(String destination);
+
+
+
 }

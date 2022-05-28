@@ -26,4 +26,14 @@ public class CompanyServiceImpl implements CompanyService
         return companyDao.findTotalDistance();
     }
 
+    @Override
+    public List<Company> findAverageDistanceMoreThan(int distance) {
+        return companyDao.findAverageDistanceMoreThan(distance);
+    }
+
+    @Override
+    public List<Company> findTotalPassengerAndTotalSale() {
+        return companyDao.findTotalPassengerAndTotalSale();
+    }
+
 }

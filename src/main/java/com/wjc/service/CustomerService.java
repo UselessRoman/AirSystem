@@ -2,8 +2,12 @@ package com.wjc.service;
 
 import com.wjc.domain.Customer;
 
+import java.util.List;
+
 public interface CustomerService
 {
     Customer searchAllInformationByName(String name);
-    void findByID(int id);
+    Customer findByID(int id);
+
+    List<Customer> findByMainlandIDAndDestination(String destination);
 }

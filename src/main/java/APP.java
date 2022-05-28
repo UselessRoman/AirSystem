@@ -1,7 +1,5 @@
 import com.wjc.config.SpringConfig;
-import com.wjc.domain.Company;
 import com.wjc.domain.Customer;
-import com.wjc.domain.Flight;
 import com.wjc.service.CompanyService;
 import com.wjc.service.CustomerService;
 import com.wjc.service.FlightService;
@@ -23,11 +21,14 @@ public class APP {
 
         TicketService ticketService = ctx.getBean(TicketService.class);
 
-//        List<Flight> flights = flightService.findPassengerNumAndTotalSale();
-//        for (Flight flight: flights
-//             ) {
-//            System.out.println(flight);
-//        }
+
+        List<Customer> customers =
+                customerService.findByMainlandIDAndDestination("北京");
+
+        for (Customer customer:customers
+             ) {
+            System.out.println(customer);
+        }
 
 
     }
