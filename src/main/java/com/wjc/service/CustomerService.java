@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CustomerService
 {
-    Customer searchAllInformationByName(String name);
+    List<Customer>  searchAllInformationByName(String name);
     Customer findByID(int id);
 
     List<Customer> findByMainlandIDAndDestination(String destination);

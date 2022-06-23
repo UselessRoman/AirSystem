@@ -16,8 +16,8 @@ public class Customer {
     @Override
     public String toString() {
         return customerName +
-                "乘客，身份证号为'" + customerID +
-                ", 电话号码为'" + phoneNum +
+                "乘客，身份证号为" + customerID +
+                ", 电话号码为" + phoneNum +
                 ", 票号为" + ticketNum +
                 ", 航班标识为" + flightID +
                 ", 由" + startPlace +

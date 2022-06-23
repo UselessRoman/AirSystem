@@ -11,10 +11,10 @@ import java.util.List;
 public interface CustomerDao {
 
     //根据姓名查询信息
-    @Select("select  customer.customerName, Customer.customerID,Customer.phoneNum,Customer.ticketNum,Price,Discount,startPlace ,Destination,startTime " +
+    @Select("select  customer.customerName, Customer.customerID,Customer.phoneNum,Customer.ticketNum,ticket.flightID,Price,Discount,startPlace ,Destination,startTime " +
             "from customer,ticket,flight " +
             "where  Customer.customerName=#{name} and customer.ticketNum=Ticket.ticketID and ticket.flightID=Flight.flightId")
-    Customer searchAllInformationByName(String name);
+    List<Customer> searchAllInformationByName(String name);
 
 
     //根据id查询信息
@@ -24,7 +24,7 @@ public interface CustomerDao {
     Customer findByID(int id);
 
 
-    @Select("select customer.* ,Price,Discount,startPlace ,Destination,startTime " +
+    @Select("select customer.* ,Price,t.flightID,Discount,startPlace ,Destination,startTime " +
             " from customer join ticket t on t.ticketID = customer.ticketNum join flight f on f.flightId = t.flightID" +
             " where destination=#{destination}" +
             " and customerID like '__________________' ")

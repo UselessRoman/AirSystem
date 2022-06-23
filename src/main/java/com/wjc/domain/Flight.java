@@ -17,16 +17,17 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "航班标识为" + flightId +
-                "的" + flightName  +
-                "号航班，由" + startPlace  +
-                "起飞，降落至" + destination  +
+        String line = "航班标识为" + flightId +
+                "的" + flightName +
+                "号航班，由" + startPlace +
+                "起飞，降落至" + destination +
                 ", 出发时间为" + startTime +
                 ", 到达时间为" + arriveTime +
                 ", 航程" + distance +
-                ", 公司标识为" + companyID +
-                ", 乘客总人数" + passengerNum +
-                ", 总销售额为" + totalSale;
+                ", 公司标识为" + companyID;
+        if (passengerNum != 0) line += ", 乘客总人数" + passengerNum;
+        if (totalSale != 0) line += ", 总销售额为" + totalSale;
+        return line;
     }
 
     public int getPassengerNum() {

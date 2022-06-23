@@ -15,8 +15,8 @@ public class FlightServiceImpl implements FlightService
     private FlightDao flightDao;
 
     @Override
-    public void count() {
-        flightDao.count();
+    public int  count() {
+        return flightDao.count();
     }
 
     @Override
@@ -42,6 +42,12 @@ public class FlightServiceImpl implements FlightService
     @Override
     public Flight findCheapestByStartAndDestination(String start, String destination) {
         return flightDao.findCheapestByStartAndDestination(start,destination);
+    }
+
+    @Override
+    public int countByDestination(String destination)
+    {
+        return flightDao.countByDestination(destination);
     }
 
     @Override

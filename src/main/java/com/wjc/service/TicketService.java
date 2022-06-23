@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface TicketService
 {
-    List<Ticket> findByPriceLessThan();
+    List<Ticket> findByPriceLessThan(int price);
 }

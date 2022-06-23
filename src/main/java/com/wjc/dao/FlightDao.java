@@ -2,6 +2,7 @@ package com.wjc.dao;
 
 
 import com.wjc.domain.Flight;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +13,7 @@ public interface FlightDao {
 
     //统计所有航班数量
     @Select("select count(*) from Flight")
-    void count();
+    int count();
 
 
     //查询从某城市起飞的所有航班
@@ -29,7 +30,7 @@ public interface FlightDao {
     @Select("select * from Flight " +
             "where destination=#{destination} and startPlace=#{start} " +
             "order by startTime ")
-    List<Flight> findByStartAndDestination(String start, String destination);
+    List<Flight> findByStartAndDestination(@Param("start") String start,@Param("destination") String destination);
 
 
     //统计各航班的人数和销售额，按照航班人数和销售额升序
@@ -41,14 +42,17 @@ public interface FlightDao {
     List<Flight> findPassengerNumAndTotalSale();
 
 
-    @Select("select distinct * from Flight join ticket " +
+    @Select("select flight.* from Flight join ticket on flight.flightId = ticket.flightID " +
             "where destination=#{destination} and startPlace=#{start} " +
-            "and ticket.discount = " +
+            "and ticket.discount*ticket.price = " +
             "(select min(discount*price)" +
-            "from ticket join flight " +
+            "from ticket join flight on flight.flightId = ticket.flightID " +
             "where  destination = #{destination} and startPlace=#{start})")
-    Flight findCheapestByStartAndDestination(String start, String destination);
+    Flight findCheapestByStartAndDestination(@Param("start") String start,@Param("destination") String destination);
 
+    @Select("select count(*) from flight" +
+            " where destination=#{destination}")
+    int countByDestination(String destination);
 
     @Select("select min(distance)" +
             "from flight " +
@@ -69,7 +73,6 @@ public interface FlightDao {
             "from flight " +
             " where destination=#{destination} ")
     int findTotalDistanceByDestination(String destination);
-
 
 
 }

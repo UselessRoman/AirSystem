@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface FlightService
 {
-    void count();
+    int count();
 
     List<Flight> findByStartCity(String city);
 
@@ -17,6 +17,8 @@ public interface FlightService
     List<Flight> findPassengerNumAndTotalSale();
 
     Flight findCheapestByStartAndDestination(String start,String destination);
+
+    int countByDestination(String destination);
 
     int findMinDistanceByDestination(String destination);
 

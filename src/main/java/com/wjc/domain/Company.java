@@ -43,12 +43,14 @@ public class Company {
 
     @Override
     public String toString() {
-        return "标号为" + companyID +
-                "的航司, 全称为" + companyName  +
-                ", 总运营里程为" + totalDistance +
-                ", 平均运营里程为" + averageDistance+
-                ",总人数为"+totalPassenager+
-                ",总销售额为"+totalSale;
+        String line = "标号为" + companyID +
+                "的航司, 全称为" + companyName;
+        if (totalDistance != 0) line += ",总运营里程为" + totalDistance;
+        if (averageDistance != 0) line += ",平均运营里程为" + averageDistance;
+        if (totalPassenager != 0) line += ",总人数为" + totalPassenager;
+        if (totalSale != 0) line += ",总销售额为" + totalSale;
+
+        return line;
     }
 
     public void setAverageDistance(int averageDistance) {
